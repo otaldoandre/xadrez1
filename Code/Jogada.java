@@ -79,9 +79,7 @@ public class Jogada {
                 for (int x = 0; x < 8; x++) {
                     Casa casaDestino = t.casas[y][x];
                     if (peca.movimentoValido(c.y, c.x, y, x)) {
-                        // Simular
                         Tabuleiro copia = t.copia();
-                        // Encontrar a peça simulada na cópia
                         Casa cCopia = copia.encontrarCasaDaPecaPorTipoCor(peca.getClass(), peca.cor, copia);
                         if (cCopia == null) continue;
                         copia.casas[y][x].ocupante = cCopia.ocupante;
@@ -96,6 +94,33 @@ public class Jogada {
                                     adversarioCopia.minhasPecas.add(p);
                                 }
                             }
+                        }
+                        // Se a peça for o rei, não permita mover para casa atacada
+                        if (peca instanceof Rei) {
+                            // Verifique se a casa de destino está sob ataque
+                            Jogador oponenteCopia = new Jogador("oponente", 1 - adversario.cor);
+                            oponenteCopia.minhasPecas = new ArrayList<>();
+                            for (int yy = 0; yy < 8; yy++) {
+                                for (int xx = 0; xx < 8; xx++) {
+                                    Peca p = copia.casas[yy][xx].ocupante;
+                                    if (p != null && p.jogador.cor != adversario.cor) {
+                                        oponenteCopia.minhasPecas.add(p);
+                                    }
+                                }
+                            }
+                            Casa novaCasaRei = copia.casas[y][x];
+                            boolean sobAtaque = false;
+                            for (Peca p : oponenteCopia.minhasPecas) {
+                                Casa cP = copia.encontrarCasaDaPecaPorTipoCor(p.getClass(), p.cor, copia);
+                                if (cP == null) continue;
+                                if (p.movimentoValido(cP.y, cP.x, novaCasaRei.y, novaCasaRei.x)) {
+                                    if (p instanceof Cavalo || copia.caminhoEstaLivre(cP, novaCasaRei)) {
+                                        sobAtaque = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (sobAtaque) continue; // casa está sob ataque, não pode mover
                         }
                         if (!ehXeque(copia, adversarioCopia)) {
                             return false;
