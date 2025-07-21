@@ -78,6 +78,30 @@ public class Tabuleiro {
 
     }
 
+    /**
+     * Verifica se o caminho entre origem e destino está livre (sem peças),
+     * exceto a casa de origem e destino.
+     * Funciona para movimentos retos e diagonais.
+     */
+    public boolean caminhoEstaLivre(Casa origem, Casa destino) {
+        // Se for cavalo, sempre retorna true (cavalo pula peças)
+        if (origem.ocupante instanceof Cavalo) return true;
+        int x0 = origem.x;
+        int y0 = origem.y;
+        int x1 = destino.x;
+        int y1 = destino.y;
+        int dx = Integer.compare(x1, x0); // -1, 0 ou 1
+        int dy = Integer.compare(y1, y0); // -1, 0 ou 1
+        int x = x0 + dx;
+        int y = y0 + dy;
+        while (x != x1 || y != y1) {
+            if (casas[y][x].ocupante != null) return false;
+            x += dx;
+            y += dy;
+        }
+        return true;
+    }
+
     // saida na versao nao grafica
     public String desenho() {
 
