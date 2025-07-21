@@ -27,4 +27,9 @@ public class Rei  extends Peca {
 
         return "♚";
     }
+
+    @Override
+    public Peca clone() {
+        return new Rei(this.cor, this.jogador);
+    }
 }

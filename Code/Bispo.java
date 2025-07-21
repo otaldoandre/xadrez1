@@ -29,4 +29,8 @@ public class Bispo extends Peca {
         return "♝";
     }
 
+    @Override
+    public Peca clone() {
+        return new Bispo(this.cor, this.jogador);
+    }
 }

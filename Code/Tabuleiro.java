@@ -102,6 +102,23 @@ public class Tabuleiro {
         return true;
     }
 
+    public Tabuleiro copia() {
+        Tabuleiro novo = new Tabuleiro();
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                Casa original = this.casas[y][x];
+                Casa copia = new Casa(original.cor, x, y);
+                if (original.ocupante != null) {
+                    copia.ocupante = original.ocupante.clone(); // Usar clone() para nova instância
+                } else {
+                    copia.ocupante = null;
+                }
+                novo.casas[y][x] = copia;
+            }
+        }
+        return novo;
+    }
+
     // saida na versao nao grafica
     public String desenho() {
 

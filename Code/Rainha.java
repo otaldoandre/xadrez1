@@ -29,4 +29,8 @@ public class Rainha extends Peca {
         return "♛";
     }
     
+    @Override
+    public Peca clone() {
+        return new Rainha(this.cor, this.jogador);
+    }
 }

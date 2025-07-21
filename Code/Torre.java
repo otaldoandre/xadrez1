@@ -26,4 +26,9 @@ public class Torre extends Peca {
         return "♜";
     }
 
+    @Override
+    public Peca clone() {
+        return new Torre(this.cor, this.jogador);
+    }
+
 }

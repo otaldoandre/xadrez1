@@ -29,4 +29,6 @@ public abstract class Peca {
     // (deve ser implementado para cada variante da classe)
     public abstract String caminho();
 
+    public abstract Peca clone();
+
 }
