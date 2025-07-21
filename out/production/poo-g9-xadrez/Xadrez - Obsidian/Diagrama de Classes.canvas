@@ -1,0 +1,35 @@
+{
+	"nodes":[
+		{"id":"314531cd331a30a4","type":"group","x":-280,"y":-460,"width":1080,"height":1020,"label":"Lógica"},
+		{"id":"493426b3b386f279","type":"group","x":-640,"y":-460,"width":315,"height":475,"label":"Legenda"},
+		{"id":"bb6264b630e5a2a7","type":"file","file":"Legendas/Referência.md","x":-620,"y":-421,"width":275,"height":50,"color":"5"},
+		{"id":"234d6985f0b5ccc6","type":"file","file":"Legendas/Subclasse.md","x":-620,"y":-324,"width":275,"height":117,"color":"1"},
+		{"id":"d9a9442056442e7b","type":"file","file":"Legendas/Variações.md","x":-640,"y":200,"width":315,"height":360},
+		{"id":"6184e87c2b699825","type":"file","file":"Legendas/Extende.md","x":-619,"y":-70,"width":274,"height":50,"color":"4"},
+		{"id":"91a8c38777028f7b","type":"file","file":"Legendas/Conhece.md","x":-619,"y":-170,"width":275,"height":50,"color":"3"},
+		{"id":"0ec7ce0b2f1a3f63","type":"file","file":"Classes/Caminho.md","x":160,"y":150,"width":220,"height":50},
+		{"id":"aef3f0b1e3f17316","type":"file","file":"Classes/Casa.md","x":160,"y":380,"width":220,"height":50},
+		{"id":"60ee6245c8e75fd1","type":"file","file":"Classes/Jogo.md","x":220,"y":-340,"width":220,"height":50},
+		{"id":"cbd41045a105afdf","type":"file","file":"Classes/Gerenciador.md","x":210,"y":-540,"width":240,"height":50},
+		{"id":"8ab62d3d579a0c35","type":"file","file":"Classes/Jogador.md","x":-200,"y":-340,"width":220,"height":50},
+		{"id":"0b5af553c48f0713","type":"file","file":"Classes/Peça.md","x":-200,"y":40,"width":220,"height":50},
+		{"id":"e1f670c3c75457b9","type":"file","file":"Classes/Jogada.md","x":220,"y":-45,"width":220,"height":50},
+		{"id":"4248781805823262","type":"file","file":"Classes/Tabuleiro.md","x":520,"y":-45,"width":213,"height":50}
+	],
+	"edges":[
+		{"id":"c4004e308ef70fe7","fromNode":"cbd41045a105afdf","fromSide":"bottom","toNode":"60ee6245c8e75fd1","toSide":"top","color":"1"},
+		{"id":"6fee03fa08ebece1","fromNode":"4248781805823262","fromSide":"bottom","toNode":"aef3f0b1e3f17316","toSide":"right","color":"1","label":"c/ 64"},
+		{"id":"11d643b6e78a40cb","fromNode":"0b5af553c48f0713","fromSide":"bottom","toNode":"aef3f0b1e3f17316","toSide":"left","fromEnd":"arrow","color":"5"},
+		{"id":"e320a9eacb1b9ede","fromNode":"60ee6245c8e75fd1","fromSide":"right","toNode":"4248781805823262","toSide":"top","color":"1"},
+		{"id":"f439d592046c4718","fromNode":"8ab62d3d579a0c35","fromSide":"left","toNode":"0b5af553c48f0713","toSide":"top","color":"5","label":"c/ 16"},
+		{"id":"63a11bdf2dfac990","fromNode":"60ee6245c8e75fd1","fromSide":"left","toNode":"8ab62d3d579a0c35","toSide":"right","color":"1"},
+		{"id":"21f0052f33817db5","fromNode":"60ee6245c8e75fd1","fromSide":"bottom","toNode":"e1f670c3c75457b9","toSide":"top","color":"1","label":"cria &\nverifica\n"},
+		{"id":"b469a3fa8fd4eedc","fromNode":"e1f670c3c75457b9","fromSide":"right","toNode":"4248781805823262","toSide":"left","color":"3"},
+		{"id":"b1cf84a89f4ac3a1","fromNode":"e1f670c3c75457b9","fromSide":"left","toNode":"8ab62d3d579a0c35","toSide":"bottom","color":"5"},
+		{"id":"fc2c53989539a131","fromNode":"0ec7ce0b2f1a3f63","fromSide":"bottom","toNode":"aef3f0b1e3f17316","toSide":"top","color":"5","label":"menciona"},
+		{"id":"f4167cc266aa2fb7","fromNode":"e1f670c3c75457b9","fromSide":"bottom","toNode":"0ec7ce0b2f1a3f63","toSide":"top","color":"1"},
+		{"id":"593d9f267a654d5d","fromNode":"0ec7ce0b2f1a3f63","fromSide":"right","toNode":"4248781805823262","toSide":"left","color":"3"},
+		{"id":"aecd1c73acc8bf5e","fromNode":"d9a9442056442e7b","fromSide":"top","toNode":"0b5af553c48f0713","toSide":"left","color":"4"},
+		{"id":"843135537eb2ed3d","fromNode":"60ee6245c8e75fd1","fromSide":"left","toNode":"0b5af553c48f0713","toSide":"right","color":"1","label":"c/ 32"}
+	]
+}

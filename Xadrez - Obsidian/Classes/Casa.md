@@ -1,0 +1,1 @@
+Guarda sua própria cor e posição. Referencia a peça que está a ocupando, se houver.

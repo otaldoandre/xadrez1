@@ -1,0 +1,1 @@
+Local, Única a esta classe

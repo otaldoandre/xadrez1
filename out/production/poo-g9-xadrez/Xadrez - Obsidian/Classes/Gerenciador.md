@@ -1,0 +1,1 @@
+Basicamente, é a tela de início. E chama a classe jogo. Nada mais.
