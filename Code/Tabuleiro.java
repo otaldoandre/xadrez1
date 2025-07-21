@@ -144,4 +144,16 @@ public class Tabuleiro {
 
     }
 
+    public Casa encontrarReiDoJogador(int cor, Tabuleiro tabuleiro) {
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                Peca ocupante = tabuleiro.casas[y][x].ocupante;
+                if (ocupante != null && ocupante instanceof Rei && ocupante.cor == cor) {
+                    return tabuleiro.casas[y][x];
+                }
+            }
+        }
+        return null;
+    }
+
 }

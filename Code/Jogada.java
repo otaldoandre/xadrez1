@@ -52,7 +52,7 @@ public class Jogada {
     }
 
     public boolean ehXeque(Tabuleiro t, Jogador adversario) {
-        Casa casaRei = t.encontrarCasaDaPecaPorTipoCor(Rei.class, adversario.cor, t);
+        Casa casaRei = t.encontrarReiDoJogador(adversario.cor, t);
         if (casaRei == null) {
             return false;
         }
