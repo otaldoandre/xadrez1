@@ -49,10 +49,21 @@ public class Jogada {
 
     }
 
-    public boolean ehXeque() {
-
+    public boolean ehXeque(Tabuleiro t, Jogador adversario) {
+        Casa casaRei = t.encontrarCasaDaPecaPorTipoCor(Rei.class, adversario.cor, t);
+        if (casaRei == null) {
+            return false;
+        }
+        for (Peca p : this.autor.minhasPecas) {
+            Casa c = t.encontrarCasaDaPecaPorTipoCor(p.getClass(), p.cor, t);
+            if (c == null) continue;
+            if (p.movimentoValido(c.y, c.x, casaRei.y, casaRei.x)) {
+                if (p instanceof Cavalo || t.caminhoEstaLivre(c, casaRei)) {
+                    return true;
+                }
+            }
+        }
         return false;
-
     }
 
     public boolean ehXequeMate() {
