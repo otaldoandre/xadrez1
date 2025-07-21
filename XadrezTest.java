@@ -59,4 +59,30 @@ public class XadrezTest {
         // O movimento é válido e a jogada seria válida
         assertTrue(rei.movimentoValido(4, 4, 4, 5));
     }
+
+    @Test
+    public void testMovimentoPeao() {
+        Jogador jogadorBranco = new Jogador("Branco", 0);
+        Peao peaoBranco = new Peao(0, jogadorBranco);
+        // Move 1 casa para frente (válido)
+        assertTrue(peaoBranco.movimentoValido(6, 0, 5, 0));
+        // Move 2 casas para frente na primeira jogada (válido)
+        assertTrue(peaoBranco.movimentoValido(6, 0, 4, 0));
+        // Move 2 casas para frente após a primeira jogada (inválido)
+        // Supondo que o peão já não está mais na linha inicial
+        assertFalse(peaoBranco.movimentoValido(5, 0, 3, 0));
+        // Move para trás (inválido)
+        assertFalse(peaoBranco.movimentoValido(5, 0, 6, 0));
+
+        Jogador jogadorPreto = new Jogador("Preto", 1);
+        Peao peaoPreto = new Peao(1, jogadorPreto);
+        // Move 1 casa para frente (válido para preto)
+        assertTrue(peaoPreto.movimentoValido(1, 0, 2, 0));
+        // Move 2 casas para frente na primeira jogada (válido para preto)
+        assertTrue(peaoPreto.movimentoValido(1, 0, 3, 0));
+        // Move 2 casas para frente após a primeira jogada (inválido para preto)
+        assertFalse(peaoPreto.movimentoValido(2, 0, 4, 0));
+        // Move para trás (inválido para preto)
+        assertFalse(peaoPreto.movimentoValido(2, 0, 1, 0));
+    }
 }
