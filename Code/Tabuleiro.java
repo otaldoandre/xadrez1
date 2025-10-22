@@ -78,6 +78,47 @@ public class Tabuleiro {
 
     }
 
+    /**
+     * Verifica se o caminho entre origem e destino está livre (sem peças),
+     * exceto a casa de origem e destino.
+     * Funciona para movimentos retos e diagonais.
+     */
+    public boolean caminhoEstaLivre(Casa origem, Casa destino) {
+        // Se for cavalo, sempre retorna true (cavalo pula peças)
+        if (origem.ocupante instanceof Cavalo) return true;
+        int x0 = origem.x;
+        int y0 = origem.y;
+        int x1 = destino.x;
+        int y1 = destino.y;
+        int dx = Integer.compare(x1, x0); // -1, 0 ou 1
+        int dy = Integer.compare(y1, y0); // -1, 0 ou 1
+        int x = x0 + dx;
+        int y = y0 + dy;
+        while (x != x1 || y != y1) {
+            if (casas[y][x].ocupante != null) return false;
+            x += dx;
+            y += dy;
+        }
+        return true;
+    }
+
+    public Tabuleiro copia() {
+        Tabuleiro novo = new Tabuleiro();
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                Casa original = this.casas[y][x];
+                Casa copia = new Casa(original.cor, x, y);
+                if (original.ocupante != null) {
+                    copia.ocupante = original.ocupante.clone(); // Usar clone() para nova instância
+                } else {
+                    copia.ocupante = null;
+                }
+                novo.casas[y][x] = copia;
+            }
+        }
+        return novo;
+    }
+
     // saida na versao nao grafica
     public String desenho() {
 
@@ -101,6 +142,18 @@ public class Tabuleiro {
 
         return "";
 
+    }
+
+    public Casa encontrarReiDoJogador(int cor, Tabuleiro tabuleiro) {
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                Peca ocupante = tabuleiro.casas[y][x].ocupante;
+                if (ocupante != null && ocupante instanceof Rei && ocupante.cor == cor) {
+                    return tabuleiro.casas[y][x];
+                }
+            }
+        }
+        return null;
     }
 
 }

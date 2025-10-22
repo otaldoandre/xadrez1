@@ -58,4 +58,9 @@ public class Peao extends Peca {
         return "♟";
     }
 
+    @Override
+    public Peca clone() {
+        return new Peao(this.cor, this.jogador);
+    }
+
 }

@@ -32,4 +32,9 @@ public class Cavalo extends Peca {
 
         return "♞";
     }
+
+    @Override
+    public Peca clone() {
+        return new Cavalo(this.cor, this.jogador);
+    }
 }
